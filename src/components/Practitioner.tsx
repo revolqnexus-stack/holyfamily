@@ -72,7 +72,7 @@ export default function Practitioner() {
           </motion.p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-8 sm:gap-12">
           {doctors.map((doc, index) => (
             <motion.div
               key={doc.name}
@@ -82,35 +82,35 @@ export default function Practitioner() {
               transition={{ delay: index * 0.1 }}
               className="group"
             >
-              <div className="relative aspect-[3/4] rounded-[2.5rem] overflow-hidden mb-8 shadow-2xl">
+              <div className="relative aspect-[3/4] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden mb-6 sm:mb-8 shadow-2xl">
                 <img 
                   src={doc.image} 
                   alt={doc.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8">
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
                   <div className="flex items-center gap-2 mb-2">
                     <Star className="w-4 h-4 text-accent fill-accent" />
-                    <span className="text-white/80 text-xs font-bold uppercase tracking-widest">Specialist</span>
+                    <span className="text-white/80 text-[10px] font-bold uppercase tracking-widest">Specialist</span>
                   </div>
-                  <h3 className="text-2xl font-serif text-white">{doc.name}</h3>
-                  <p className="text-white/60 text-sm font-medium">{doc.role}</p>
+                  <h3 className="text-xl sm:text-2xl font-serif text-white">{doc.name}</h3>
+                  <p className="text-white/60 text-xs sm:text-sm font-medium">{doc.role}</p>
                 </div>
               </div>
 
-              <div className="space-y-6 px-4">
+              <div className="space-y-4 sm:space-y-6 px-2 sm:px-4">
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <GraduationCap className="text-primary w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">{doc.qualifications}</div>
-                    <div className="text-xs text-muted-foreground uppercase tracking-wider font-bold mt-1">{doc.specialization}</div>
+                    <div className="font-bold text-sm sm:text-base text-foreground">{doc.qualifications}</div>
+                    <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider font-bold mt-1">{doc.specialization}</div>
                   </div>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-4 group-hover:line-clamp-none transition-all duration-500">
                   {doc.details}
                 </p>
 

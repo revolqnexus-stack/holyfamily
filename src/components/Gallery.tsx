@@ -77,28 +77,32 @@ export default function Gallery() {
         </div>
 
         {/* Tab Bar */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 p-2 bg-muted/30 rounded-[2rem] max-w-fit mx-auto">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`relative flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeTab === cat.id 
-                ? 'text-white shadow-lg' 
-                : 'text-muted-foreground hover:text-foreground hover:bg-white/50'
-              }`}
-            >
-              {activeTab === cat.id && (
-                <motion.div 
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-primary rounded-full -z-10"
-                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                />
-              )}
-              <cat.icon className="w-4 h-4" />
-              {cat.label}
-            </button>
-          ))}
+        <div className="flex justify-start sm:justify-center overflow-x-auto no-scrollbar pb-4 sm:pb-0 mb-12">
+          <div className="flex gap-2 p-2 bg-muted/50 rounded-[2rem] mx-auto min-w-max">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`relative flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 outline-none ${
+                  activeTab === cat.id 
+                  ? 'text-primary-foreground shadow-lg' 
+                  : 'text-muted-foreground hover:text-foreground hover:bg-white/50'
+                }`}
+              >
+                {activeTab === cat.id && (
+                  <motion.div 
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-primary rounded-full"
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <cat.icon className="w-4 h-4" />
+                  {cat.label}
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Gallery Grid */}

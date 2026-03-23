@@ -27,12 +27,12 @@ export default function Hero() {
             Premium Dental Care in Kuravilangad
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-serif text-foreground leading-[1.1] mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-foreground leading-[1.1] mb-6 sm:mb-8">
             Every smile. <br />
             <span className="text-primary italic">Carefully</span> restored.
           </h1>
           
-          <p className="text-lg text-muted-foreground mb-10 leading-relaxed max-w-lg">
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed max-w-lg">
             A boutique dental experience in the heart of Central Junction. 
             Blending specialist expertise with a warm, clinical excellence.
           </p>
@@ -40,30 +40,30 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link 
               href="https://wa.me/918071909299" 
-              className="px-8 py-4 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-all text-center shadow-lg shadow-primary/20"
+              className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all text-center shadow-lg shadow-primary/20"
             >
               Book Consultation
             </Link>
             <Link 
               href="#specialties" 
-              className="px-8 py-4 bg-transparent border border-border text-foreground rounded-full font-medium hover:bg-secondary transition-all text-center"
+              className="px-8 py-4 bg-transparent border border-border text-foreground rounded-full font-bold hover:bg-secondary transition-all text-center"
             >
               Our Specialties
             </Link>
           </div>
 
-          <div className="mt-12 grid grid-cols-3 gap-8 border-t border-border pt-8">
+          <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-8 border-t border-border pt-8">
             <div>
-              <div className="text-2xl font-serif text-foreground">13+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-xl sm:text-2xl font-serif text-foreground">13+</div>
+              <div className="text-[10px] sm:text-sm text-muted-foreground uppercase tracking-wider font-bold">Years Experience</div>
             </div>
             <div>
-              <div className="text-2xl font-serif text-foreground">4.9/5</div>
-              <div className="text-sm text-muted-foreground">Patient Rating</div>
+              <div className="text-xl sm:text-2xl font-serif text-foreground">4.9/5</div>
+              <div className="text-[10px] sm:text-sm text-muted-foreground uppercase tracking-wider font-bold">Patient Rating</div>
             </div>
             <div>
-              <div className="text-2xl font-serif text-foreground">110+</div>
-              <div className="text-sm text-muted-foreground">Google Reviews</div>
+              <div className="text-xl sm:text-2xl font-serif text-foreground">110+</div>
+              <div className="text-[10px] sm:text-sm text-muted-foreground uppercase tracking-wider font-bold">Google Reviews</div>
             </div>
           </div>
         </motion.div>
@@ -72,9 +72,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative aspect-[4/5] lg:aspect-square"
+          className="relative aspect-[4/5] lg:aspect-square mt-12 lg:mt-0"
         >
-          <div className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl">
+          <div className="absolute inset-0 rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl">
             {/* Placeholder for high-end dental imagery */}
             <div className="w-full h-full bg-secondary flex items-center justify-center relative group">
                <img 
@@ -91,24 +91,24 @@ export default function Hero() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl max-w-xs shadow-xl border border-white/20"
+            className="absolute -bottom-6 -left-4 sm:-left-6 glass-card p-4 sm:p-6 rounded-2xl max-w-[240px] sm:max-w-xs shadow-xl border border-white/20 z-20"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <MapPin className="text-primary w-6 h-6" />
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <MapPin className="text-primary w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <div className="font-medium">Central Junction</div>
-                <div className="text-sm text-muted-foreground">Kuravilangad, Kottayam</div>
+                <div className="font-bold text-sm sm:text-base">Central Junction</div>
+                <div className="text-[10px] sm:text-sm text-muted-foreground">Kuravilangad, Kottayam</div>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Clock className="text-primary w-6 h-6" />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                <Clock className="text-primary w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <div className="font-medium">Mon - Sat</div>
-                <div className="text-sm text-muted-foreground">09:00 AM - 07:00 PM</div>
+                <div className="font-bold text-sm sm:text-base">Mon - Sat</div>
+                <div className="text-[10px] sm:text-sm text-muted-foreground">09:00 AM - 07:00 PM</div>
               </div>
             </div>
           </motion.div>

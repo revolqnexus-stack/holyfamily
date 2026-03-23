@@ -97,37 +97,37 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="glass-card p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group"
+            className="glass-card p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl relative overflow-hidden group mt-12 lg:mt-0"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[4rem] group-hover:bg-primary/10 transition-colors duration-500" />
             
-            <h3 className="text-3xl font-serif text-foreground mb-8">Quick Inquiry</h3>
-            <p className="text-muted-foreground mb-10 leading-relaxed">
+            <h3 className="text-2xl sm:text-3xl font-serif text-foreground mb-6 sm:mb-8">Quick Inquiry</h3>
+            <p className="text-sm sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
               Have a question for our specialists? Leave your details and we'll get back to you shortly.
             </p>
 
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <form className="space-y-4 sm:space-y-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground px-1">Your Name</label>
+                  <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Your Name</label>
                   <input 
                     type="text" 
                     placeholder="John Doe" 
-                    className="w-full px-6 py-4 bg-white/50 border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm sm:text-base"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground px-1">Phone Number</label>
+                  <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Phone Number</label>
                   <input 
                     type="tel" 
                     placeholder="+91 00000 00000" 
-                    className="w-full px-6 py-4 bg-white/50 border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                    className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm sm:text-base"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground px-1">Treatment Interest</label>
-                <select className="w-full px-6 py-4 bg-white/50 border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none">
+                <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Treatment Interest</label>
+                <select className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none text-sm sm:text-base">
                   <option>Root Canal Treatment (RCT)</option>
                   <option>Dental Implants</option>
                   <option>Crowns & Bridges</option>
@@ -137,15 +137,15 @@ export default function Contact() {
                 </select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-foreground px-1">Message</label>
+                <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Message</label>
                 <textarea 
                   rows={4} 
                   placeholder="How can our specialists help you today?" 
-                  className="w-full px-6 py-4 bg-white/50 border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                  className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none text-sm sm:text-base"
                 />
               </div>
               
-              <button className="w-full py-5 bg-primary text-white rounded-2xl font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/20">
+              <button className="w-full py-4 sm:py-5 bg-primary text-white rounded-xl sm:rounded-2xl font-bold hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/20">
                 Send Inquiry <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -90,40 +90,46 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-xl"
-        >
-          <div className="flex flex-col gap-6">
-            {['Specialties', 'Gallery', 'Practitioner', 'Contact'].map((item) => (
-              <Link 
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-lg font-serif font-medium text-foreground"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item}
-              </Link>
-            ))}
-            <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
-              <Link 
-                href="tel:08071909299" 
-                className="flex items-center justify-center gap-2 py-4 rounded-2xl border border-border text-foreground font-medium"
-              >
-                <Phone className="w-4 h-4" /> Call
-              </Link>
-              <Link 
-                href="https://wa.me/918071909299" 
-                className="flex items-center justify-center gap-2 py-4 rounded-2xl bg-primary text-white font-medium"
-              >
-                <MessageCircle className="w-4 h-4" /> WhatsApp
-              </Link>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border shadow-2xl overflow-hidden"
+          >
+            <div className="flex flex-col gap-4 p-6 pt-2">
+              {['Specialties', 'Gallery', 'Practitioner', 'Contact'].map((item) => (
+                <Link 
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-lg font-serif font-bold text-foreground py-3 border-b border-border/50 last:border-0 flex items-center justify-between group"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item}
+                  <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-active:bg-primary group-active:text-white transition-colors">
+                    <span className="text-xl">→</span>
+                  </div>
+                </Link>
+              ))}
+              <div className="grid grid-cols-1 gap-3 pt-6">
+                <Link 
+                  href="tel:08071909299" 
+                  className="flex items-center justify-center gap-3 py-4 rounded-2xl bg-secondary text-primary font-bold active:scale-95 transition-transform"
+                >
+                  <Phone className="w-5 h-5" /> Call Specialist
+                </Link>
+                <Link 
+                  href="https://wa.me/918071909299" 
+                  className="flex items-center justify-center gap-3 py-4 rounded-2xl bg-primary text-white font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform"
+                >
+                  <MessageCircle className="w-5 h-5" /> WhatsApp Booking
+                </Link>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
