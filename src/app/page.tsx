@@ -1,0 +1,89 @@
+"use client";
+
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Specialties from "@/components/Specialties";
+import Practitioner from "@/components/Practitioner";
+import Contact from "@/components/Contact";
+import Link from "next/link";
+import { Globe, Mail, MessageCircle } from "lucide-react";
+
+export default function Home() {
+  return (
+    <main className="flex min-h-screen flex-col">
+      <Navbar />
+      <Hero />
+      <Specialties />
+      <Practitioner />
+      <Contact />
+      
+      {/* Footer */}
+      <footer className="bg-foreground text-white py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-4 gap-16 mb-20">
+            <div className="lg:col-span-2">
+              <Link href="/" className="flex items-center gap-3 group mb-8">
+                <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white font-serif text-xl font-bold transition-transform group-hover:scale-110">
+                  H
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-serif font-bold text-white leading-none tracking-tight">Holy Family</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mt-1">Dental Care</span>
+                </div>
+              </Link>
+              <p className="text-white/60 leading-relaxed max-w-sm mb-10 text-lg">
+                Redefining dental excellence in Kuravilangad with a boutique, patient-centric approach and advanced specialist care.
+              </p>
+              <div className="flex gap-4">
+                {[Globe, Mail].map((Icon, i) => (
+                  <Link 
+                    key={i}
+                    href="#" 
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
+                  >
+                    <Icon className="w-5 h-5" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-serif font-bold mb-8">Services</h4>
+              <ul className="space-y-4">
+                {['Prosthodontics', 'Endodontics', 'Implantology', 'Orthodontics', 'Paedodontics', 'Oral Surgery'].map(item => (
+                  <li key={item}>
+                    <Link href="#specialties" className="text-white/60 hover:text-primary transition-colors">{item}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-serif font-bold mb-8">Quick Links</h4>
+              <ul className="space-y-4">
+                {['About Dr. Joseph', 'Our Location', 'Book Appointment', 'Privacy Policy', 'Terms of Service'].map(item => (
+                  <li key={item}>
+                    <Link href="#" className="text-white/60 hover:text-primary transition-colors">{item}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="pt-10 border-t border-white/5 flex flex-col md:row items-center justify-between gap-6 text-sm text-white/40">
+            <p>© 2026 Holy Family Dental Care. All rights reserved.</p>
+            <p>Designed with clinical precision in Kuravilangad.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating WhatsApp Action */}
+      <Link 
+        href="https://wa.me/918071909299"
+        className="fixed bottom-8 right-8 z-50 w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 shadow-[#25D366]/20"
+      >
+        <MessageCircle className="w-8 h-8 fill-current" />
+      </Link>
+    </main>
+  );
+}

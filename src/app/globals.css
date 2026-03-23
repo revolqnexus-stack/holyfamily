@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Warm Ivory / Cream Palette */
+    --background: #FDFCF8;
+    --foreground: #2C2C2C;
+    --card: #FFFFFF;
+    --card-foreground: #2C2C2C;
+    --popover: #FDFCF8;
+    --popover-foreground: #2C2C2C;
+    --primary: #4A5D4E; /* Deep Sage / Olive */
+    --primary-foreground: #FDFCF8;
+    --secondary: #E9E5D9; /* Darker Ivory */
+    --secondary-foreground: #4A5D4E;
+    --muted: #F5F2E8;
+    --muted-foreground: #6B7280;
+    --accent: #D4AF37; /* Gold Accent */
+    --accent-foreground: #FDFCF8;
+    --destructive: #EF4444;
+    --destructive-foreground: #FDFCF8;
+    --border: #E5E1D3;
+    --input: #E5E1D3;
+    --ring: #4A5D4E;
+    --radius: 0.5rem;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: "Playfair Display", serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+.ivory-gradient {
+  background: linear-gradient(180deg, #FDFCF8 0%, #F5F2E8 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 225, 211, 0.5);
+}
