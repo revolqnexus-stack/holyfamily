@@ -8,48 +8,38 @@ import {
   Wrench, 
   Users,
   Camera,
-  Search
+  Search,
+  Play
 } from "lucide-react";
 
 const categories = [
-  { id: 'facility', label: 'Clinic & Facility', icon: Building2 },
-  { id: 'procedures', label: 'Services & Procedures', icon: Stethoscope },
-  { id: 'equipment', label: 'Equipment', icon: Wrench },
+  { id: 'procedures', label: 'Procedures', icon: Stethoscope },
+  { id: 'facility', label: 'Clinic', icon: Building2 },
   { id: 'team', label: 'Team', icon: Users },
 ];
 
 const galleryItems = {
-  facility: [
-    { label: 'Reception Area', desc: 'Warm boutique welcoming' },
-    { label: 'Waiting Room', desc: 'Premium comfort for patients' },
-    { label: 'Treatment Room', desc: 'Sterile specialist suite' },
-    { label: 'Sterilization Area', desc: 'Highest hygiene standards' },
-    { label: 'X-ray Room', desc: 'In-house diagnostics' },
-    { label: 'Clinic Exterior', desc: 'Central Junction Landmark' },
-  ],
   procedures: [
-    { label: 'Root Canal Setup', desc: 'Painless Endodontic focus' },
-    { label: 'Dental Implant Process', desc: 'Permanent restorations' },
-    { label: 'Crown Fitting', desc: 'Prosthodontic precision' },
-    { label: 'Whitening Procedure', desc: 'Cosmetic excellence' },
-    { label: 'Orthodontic Treatment', desc: 'Alignment correction' },
-    { label: 'Scaling & Cleaning', desc: 'Preventive care' },
+    { label: 'Root Canal Treatment', desc: '4 Month Follow-up', src: '/images/gallery/4 month root canal.webp' },
+    { label: 'Aesthetic Makeover', desc: 'Full Smile Rehabilitation', src: '/images/gallery/aesthetic makeover.webp' },
+    { label: 'Ceramic Inlay', desc: 'Precision Restorative', src: '/images/gallery/ceramic inlay.webp' },
+    { label: 'Teeth Correction', desc: 'Orthodontic Results', src: '/images/gallery/teeth correction.webp' },
+    { label: 'Smile Design', desc: 'Veneers & Aesthetics', src: '/images/gallery/veneers.jpg' },
+    { label: 'Endodontic Care', desc: 'Root Canal Procedure', src: '/images/gallery/root canal.jpg' },
+    { label: 'Re-RCT', desc: 'Complex Retreatments', src: '/images/gallery/re-rct.jpg' },
+    { label: 'Mucocele Removal', desc: 'Minor Oral Surgery', src: '/images/gallery/mucocele.jpg' },
+    { label: 'Crowding Correction', desc: 'Alignment Progress', src: '/images/gallery/crowding.jpg' },
   ],
-  equipment: [
-    { label: 'Dental Chair', desc: 'Ergonomic patient comfort' },
-    { label: 'X-ray Machine', desc: 'Digital apical assessment' },
-    { label: 'Sterilization Unit', desc: 'Modern autoclave system' },
-    { label: 'Instrument Tray', desc: 'Precision clinical tools' },
+  facility: [
+    { label: 'Holy Family Dental', desc: 'Clinic Exterior', src: '/images/gallery/holy family.jpg' },
   ],
   team: [
-    { label: 'Dr. Bijo Kurian', desc: 'BDS, MDS (Endodontist)' },
-    { label: 'Dr. Thara Maria Joseph', desc: 'BDS, MDS (Prosthodontist)' },
-    { label: 'Dr. Rahul', desc: 'Associate Dentist' },
+    { label: 'Dr. Bijo Kurian', desc: 'Chief Endodontist', src: '/images/gallery/dr.bijo kurian.webp' },
   ],
 };
 
 export default function Gallery() {
-  const [activeTab, setActiveTab] = useState('facility');
+  const [activeTab, setActiveTab] = useState('procedures');
 
   return (
     <section id="gallery" className="py-24 bg-background overflow-hidden">
@@ -61,8 +51,8 @@ export default function Gallery() {
             viewport={{ once: true }}
             className="text-4xl lg:text-5xl font-serif text-foreground mb-6"
           >
-            A Glimpse into <br />
-            <span className="italic text-primary">Our Care.</span>
+            Clinical <br />
+            <span className="italic text-primary">Case Gallery.</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -71,8 +61,7 @@ export default function Gallery() {
             transition={{ delay: 0.2 }}
             className="text-lg text-muted-foreground"
           >
-            Explore our state-of-the-art facility, specialized equipment, and meet the team 
-            dedicated to your smile.
+            Visualizing our commitment to clinical excellence and patient transformations.
           </motion.p>
         </div>
 
@@ -119,15 +108,13 @@ export default function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group relative glass-card rounded-3xl overflow-hidden aspect-[4/3] cursor-pointer"
+                className="group relative glass-card rounded-3xl overflow-hidden aspect-[4/3] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500"
               >
-                {/* Placeholder Image Design */}
-                <div className="absolute inset-0 bg-muted flex items-center justify-center transition-transform duration-700 group-hover:scale-110">
-                   <div className="flex flex-col items-center gap-3 text-muted-foreground/40 group-hover:text-primary/40 transition-colors">
-                      <Camera className="w-12 h-12 stroke-[1px]" />
-                      <span className="text-[10px] font-bold uppercase tracking-widest">Clinic Gallery</span>
-                   </div>
-                </div>
+                <img 
+                  src={item.src} 
+                  alt={item.label} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
                 
                 {/* Overlay Info */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
@@ -142,6 +129,45 @@ export default function Gallery() {
               </motion.div>
             ))}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Video Feature Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-20 p-8 sm:p-12 rounded-[3rem] bg-foreground text-white flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32" />
+          <div className="flex-1 z-10">
+            <h3 className="text-3xl sm:text-4xl font-serif mb-6">Patient Stories. <br /><span className="text-primary italic">Transformations in Motion.</span></h3>
+            <p className="text-white/60 mb-8 leading-relaxed max-w-lg">
+              Watch our latest clinical reels showcasing the precision and artistry behind every smile we restore at Holy Family Dental Care.
+            </p>
+            <div className="flex gap-4">
+               <button className="px-8 py-4 bg-primary text-white rounded-full font-bold flex items-center gap-2 hover:bg-primary/90 transition-all">
+                  <Play className="w-4 h-4 fill-current" /> Watch Reels
+               </button>
+            </div>
+          </div>
+          <div className="flex-1 w-full relative group">
+            <div className="aspect-video rounded-3xl overflow-hidden bg-white/5 border border-white/10 relative">
+               <video 
+                className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                poster="/images/gallery/smiles.webp"
+                muted
+                loop
+                autoPlay
+               >
+                 <source src="/images/gallery/smiles1.mp4" type="video/mp4" />
+               </video>
+               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center text-white shadow-2xl">
+                     <Play className="w-6 h-6 fill-current" />
+                  </div>
+               </div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
