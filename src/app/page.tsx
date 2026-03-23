@@ -7,7 +7,7 @@ import Gallery from "@/components/Gallery";
 import Practitioner from "@/components/Practitioner";
 import Contact from "@/components/Contact";
 import Link from "next/link";
-import { Globe, Mail, MessageCircle } from "lucide-react";
+import { Globe, Mail, MessageCircle, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
@@ -37,13 +37,18 @@ export default function Home() {
                 Redefining dental excellence in Kuravilangad since 2017. A boutique, patient-centric approach led by specialists Dr. Bijo Kurian and Dr. Thara Maria Joseph.
               </p>
               <div className="flex gap-4">
-                {[Globe, Mail].map((Icon, i) => (
+                {[
+                  { Icon: Globe, href: "#" },
+                  { Icon: Mail, href: "mailto:info@holyfamilydental.com" },
+                  { Icon: Instagram, href: "https://www.instagram.com/holy_family_dental_care?igsh=dDNkbDBkYjNvdnN0" }
+                ].map((social, i) => (
                   <Link 
                     key={i}
-                    href="#" 
+                    href={social.href}
+                    target={social.href.startsWith('http') ? "_blank" : undefined}
                     className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300"
                   >
-                    <Icon className="w-5 h-5" />
+                    <social.Icon className="w-5 h-5" />
                   </Link>
                 ))}
               </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, GraduationCap, CheckCircle, Star, Quote } from "lucide-react";
+import { Award, GraduationCap, CheckCircle, Star, Quote, Instagram } from "lucide-react";
+import Link from "next/link";
 
 const doctors = [
   {
@@ -11,7 +12,8 @@ const doctors = [
     specialization: "Endodontics, Cosmetic & Conservative Dentistry",
     details: "MDS from NITTE University. Specialist in rotary endodontics, microscopic procedures, and biomimetic restorations. Awarded for best research papers in national conferences.",
     memberships: ["IDA", "CAESOK", "IACDE"],
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/gallery/dr.bijo kurian.webp",
+    instagram: "https://www.instagram.com/bijo__kurian?igsh=MThqNm1kYmg1aWZobQ==",
     quote: "Painless treatment is not just a promise, it's our clinical standard."
   },
   {
@@ -89,6 +91,18 @@ export default function Practitioner() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                
+                {/* Social Overlay for Instagram */}
+                {doc.instagram && (
+                  <Link 
+                    href={doc.instagram}
+                    target="_blank"
+                    className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-primary hover:border-primary"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </Link>
+                )}
+
                 <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8">
                   <div className="flex items-center gap-2 mb-2">
                     <Star className="w-4 h-4 text-accent fill-accent" />
