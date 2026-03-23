@@ -9,57 +9,72 @@ import {
   Baby, 
   Scissors, 
   Scan, 
-  ShieldCheck 
+  ShieldCheck,
+  HeartPulse,
+  Syringe,
+  ClipboardList
 } from "lucide-react";
 
 const specialties = [
   {
-    title: "Prosthodontics",
-    description: "Specialized in tooth restoration and replacement, including crowns, bridges, and advanced implants.",
-    icon: Stethoscope,
-    highlights: ["Implants", "Crowns", "Bridges", "Dentures"]
-  },
-  {
     title: "Endodontics",
-    description: "Expert daily root canal treatments (RCT) focused on saving teeth with painless precision.",
+    description: "Specialized in saving natural teeth with daily, expert painless root canal treatments (RCT) and pulp therapy.",
     icon: Microscope,
     highlights: ["Painless RCT", "Pulp Therapy", "Micro-surgery"]
   },
   {
+    title: "Prosthodontics",
+    description: "Lead expertise in dental restoration including metal-based partial dentures, crowns, bridges, and implants.",
+    icon: Stethoscope,
+    highlights: ["Implants", "Crowns", "Bridges", "Dentures"]
+  },
+  {
     title: "Implantology",
-    description: "Permanent, aesthetic solutions for tooth replacement using modern titanium or ceramic posts.",
+    description: "Advanced permanent tooth replacement using modern titanium or ceramic posts for a natural look and feel.",
     icon: Scan,
     highlights: ["Single Tooth", "Full Mouth", "Bone Grafting"]
   },
   {
+    title: "Cosmetic Dentistry",
+    description: "Smile makeovers with professional teeth whitening, bleaching, dental ceramics, and aesthetic contouring.",
+    icon: Activity,
+    highlights: ["Whitening", "Veneers", "Bleaching"]
+  },
+  {
     title: "Orthodontics",
-    description: "Correcting tooth alignment and bite issues for children and adults with modern appliances.",
+    description: "Corrective alignment procedures for children and adults using modern braces and clear aligner systems.",
     icon: Smile,
     highlights: ["Braces", "Clear Aligners", "Invisalign"]
   },
   {
     title: "Paedodontics",
-    description: "Gentle, specialized dental care designed specifically for children's oral health.",
+    description: "Gentle, specialized dental care designed specifically for children's oral health and preventive needs.",
     icon: Baby,
     highlights: ["Child Friendly", "Fluoride", "Prevention"]
   },
   {
     title: "Oral Surgery",
-    description: "Expert surgical interventions from extractions to complex maxillofacial procedures.",
+    description: "Expert surgical interventions from routine extractions to complex maxillofacial procedures.",
     icon: Scissors,
     highlights: ["Extractions", "Wisdom Teeth", "Surgery"]
   },
   {
     title: "Periodontics",
-    description: "Comprehensive care for gums and supporting structures, preventing gum diseases.",
+    description: "Comprehensive care for gums and supporting structures, including bleeding gum and gum disease treatments.",
     icon: ShieldCheck,
     highlights: ["Gum Health", "Scaling", "Polishing"]
   },
   {
-    title: "Cosmetic Dentistry",
-    description: "Enhancing the beauty of your smile with whitening, bleaching, and aesthetic contouring.",
-    icon: Activity,
-    highlights: ["Whitening", "Veneers", "Bleaching"]
+    title: "General Dentistry",
+    description: "Routine oral health maintenance including professional extractions, fillings, and dental cleanings.",
+    icon: Syringe,
+    highlights: ["Extractions", "Fillings", "Scaling"]
+  },
+  {
+    title: "Diagnostics",
+    description: "In-house dental X-ray services and comprehensive specialist consultations for accurate treatment plans.",
+    icon: ClipboardList,
+    highlights: ["Digital X-Ray", "Consultation", "Planning"]
   }
 ];
 
@@ -84,19 +99,20 @@ export default function Specialties() {
             transition={{ delay: 0.2 }}
             className="text-lg text-muted-foreground leading-relaxed"
           >
-            Guided by Dr. Thara Maria Joseph, we provide a comprehensive spectrum of 
-            advanced dental procedures with a focus on patient comfort and clinical precision.
+            Guided by Dr. Bijo Kurian and Dr. Thara Maria Joseph, we provide a 
+            comprehensive spectrum of 10 advanced dental specialties focused on 
+            painless, patient-centric excellence.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {specialties.map((spec, index) => (
             <motion.div
               key={spec.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
               className="glass-card p-8 rounded-3xl hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all group"
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-500">
@@ -106,7 +122,7 @@ export default function Specialties() {
               <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                 {spec.description}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-auto">
                 {spec.highlights.map(tag => (
                   <span key={tag} className="px-3 py-1 bg-secondary/50 text-primary text-[10px] font-bold uppercase tracking-wider rounded-full">
                     {tag}
@@ -115,6 +131,31 @@ export default function Specialties() {
               </div>
             </motion.div>
           ))}
+          
+          {/* Emergency Card Integration */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="xl:col-span-2 p-8 rounded-3xl bg-primary text-white flex flex-col md:flex-row items-center gap-8 shadow-2xl shadow-primary/20"
+          >
+            <div className="w-20 h-20 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 animate-pulse">
+              <HeartPulse className="w-10 h-10" />
+            </div>
+            <div>
+              <h3 className="text-2xl font-serif mb-2">Emergency Care</h3>
+              <p className="text-white/80 mb-6 leading-relaxed max-w-lg">
+                Acute dental trauma or sudden-onset pain? Our specialists provide responsive emergency support during clinic working hours.
+              </p>
+              <a 
+                href="tel:08071909299" 
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary rounded-full font-bold hover:bg-secondary transition-all shadow-lg"
+              >
+                Call for Emergency
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

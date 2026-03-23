@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Specialties from "@/components/Specialties";
+import Gallery from "@/components/Gallery";
 import Practitioner from "@/components/Practitioner";
 import Contact from "@/components/Contact";
 import Link from "next/link";
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Specialties />
+      <Gallery />
       <Practitioner />
       <Contact />
       
@@ -32,7 +34,7 @@ export default function Home() {
                 </div>
               </Link>
               <p className="text-white/60 leading-relaxed max-w-sm mb-10 text-lg">
-                Redefining dental excellence in Kuravilangad with a boutique, patient-centric approach and advanced specialist care.
+                Redefining dental excellence in Kuravilangad since 2017. A boutique, patient-centric approach led by specialists Dr. Bijo Kurian and Dr. Thara Maria Joseph.
               </p>
               <div className="flex gap-4">
                 {[Globe, Mail].map((Icon, i) => (
@@ -48,9 +50,9 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="text-xl font-serif font-bold mb-8">Services</h4>
+              <h4 className="text-xl font-serif font-bold mb-8">Specialties</h4>
               <ul className="space-y-4">
-                {['Prosthodontics', 'Endodontics', 'Implantology', 'Orthodontics', 'Paedodontics', 'Oral Surgery'].map(item => (
+                {['Endodontics', 'Prosthodontics', 'Implantology', 'Orthodontics', 'Paedodontics', 'Cosmetic Dentistry'].map(item => (
                   <li key={item}>
                     <Link href="#specialties" className="text-white/60 hover:text-primary transition-colors">{item}</Link>
                   </li>
@@ -61,7 +63,7 @@ export default function Home() {
             <div>
               <h4 className="text-xl font-serif font-bold mb-8">Quick Links</h4>
               <ul className="space-y-4">
-                {['About Dr. Joseph', 'Our Location', 'Book Appointment', 'Privacy Policy', 'Terms of Service'].map(item => (
+                {['About Our Doctors', 'Clinic Gallery', 'Emergency Care', 'Location & Map', 'Book on Practo'].map(item => (
                   <li key={item}>
                     <Link href="#" className="text-white/60 hover:text-primary transition-colors">{item}</Link>
                   </li>
@@ -70,9 +72,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pt-10 border-t border-white/5 flex flex-col md:row items-center justify-between gap-6 text-sm text-white/40">
+          <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/40">
             <p>© 2026 Holy Family Dental Care. All rights reserved.</p>
-            <p>Designed with clinical precision in Kuravilangad.</p>
+            <p>Boutique Specialist Care at Central Junction, Kuravilangad.</p>
           </div>
         </div>
       </footer>

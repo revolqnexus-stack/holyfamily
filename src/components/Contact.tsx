@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Clock, Send, MessageCircle, Info } from "lucide-react";
 import Link from "next/link";
 
 export default function Contact() {
@@ -21,9 +21,9 @@ export default function Contact() {
             </h2>
             
             <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Located at Central Junction, directly opposite Hotel Sanyo and 
-              near the Kuravilangad bus station, our clinic is easily accessible 
-              to patients across the Kottayam district.
+              Find us at Central Junction, directly opposite Hotel Sanyo and 
+              near the Kuravilangad bus station. Our clinic serves as a regional 
+              specialist hub for the Kottayam district.
             </p>
 
             <div className="space-y-10">
@@ -48,20 +48,20 @@ export default function Contact() {
                 <div>
                   <h4 className="text-xl font-serif text-foreground mb-2">Connect with Us</h4>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    For appointments and inquiries:
+                    For appointments and specialist inquiries:
                   </p>
                   <div className="flex flex-col gap-3">
                     <Link 
                       href="tel:08071909299" 
                       className="text-foreground font-medium hover:text-primary transition-colors flex items-center gap-2"
                     >
-                      +91 80 7190 9299
+                      +91 80 7190 9299 (Ext. 033)
                     </Link>
                     <Link 
                       href="https://wa.me/918071909299" 
                       className="text-primary font-bold hover:underline flex items-center gap-2"
                     >
-                      <MessageCircle className="w-4 h-4" /> WhatsApp Us
+                      <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
                     </Link>
                   </div>
                 </div>
@@ -81,6 +81,16 @@ export default function Contact() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-12 p-6 bg-primary/5 border border-primary/10 rounded-2xl flex items-start gap-4">
+              <Info className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <p className="text-sm text-foreground font-medium mb-1">Affordable Specialist Care</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Initial specialist consultation fee is approximately ₹150. We are listed on Practo and Justdial for easy scheduling.
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div 
@@ -93,7 +103,7 @@ export default function Contact() {
             
             <h3 className="text-3xl font-serif text-foreground mb-8">Quick Inquiry</h3>
             <p className="text-muted-foreground mb-10 leading-relaxed">
-              Have a question about a treatment? Leave your details and we'll get back to you.
+              Have a question for our specialists? Leave your details and we'll get back to you shortly.
             </p>
 
             <form className="space-y-6">
@@ -123,14 +133,14 @@ export default function Contact() {
                   <option>Crowns & Bridges</option>
                   <option>Cosmetic Dentistry</option>
                   <option>General Checkup</option>
-                  <option>Other</option>
+                  <option>Paediatric Care</option>
                 </select>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground px-1">Message</label>
                 <textarea 
                   rows={4} 
-                  placeholder="How can we help you?" 
+                  placeholder="How can our specialists help you today?" 
                   className="w-full px-6 py-4 bg-white/50 border border-border rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                 />
               </div>

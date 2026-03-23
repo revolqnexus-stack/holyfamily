@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-10">
           <div className="flex gap-8">
-            {['Specialties', 'Practitioner', 'Location', 'Contact'].map((item) => (
+            {['Specialties', 'Gallery', 'Practitioner', 'Contact'].map((item) => (
               <Link 
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -97,7 +97,7 @@ export default function Navbar() {
           className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border p-6 shadow-xl"
         >
           <div className="flex flex-col gap-6">
-            {['Specialties', 'Practitioner', 'Location', 'Contact'].map((item) => (
+            {['Specialties', 'Gallery', 'Practitioner', 'Contact'].map((item) => (
               <Link 
                 key={item}
                 href={`#${item.toLowerCase()}`}
